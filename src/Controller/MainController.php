@@ -19,14 +19,14 @@ final class MainController extends AbstractController
         BlueService $blueService
     ): JsonResponse
     {
-        /*$cities = $cityService->getCities();
+        $cities = $cityService->getCities();
         $city_1 = $cities->cities[array_rand( $cities->cities)];
 
         $latitude = $city_1->latitude;
-        $longitude = $city_1->longitude;*/
+        $longitude = $city_1->longitude;
 
-        //$weather = $serviceOpenMeteo->GetMeteo($latitude,$longitude);
-        $weather = $serviceOpenMeteo->getMeteoTest();
+        $weather = $serviceOpenMeteo->GetMeteo($latitude,$longitude);
+        //$weather = $serviceOpenMeteo->getMeteoTest();
 
 
         

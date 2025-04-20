@@ -19,7 +19,7 @@ class Weather
 	public string $timezoneAbbreviation;
 	public float $elevation;
 
-    //#[SerializedName('hourly_units')]
+    #[SerializedName('hourly_units')]
 	public ?HourlyUnits $hourlyUnits;
 	public ?Hourly $hourly;
 
