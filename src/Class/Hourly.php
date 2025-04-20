@@ -6,32 +6,32 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 class Hourly
 {
 	/** @var string[] */
-	public array $time;
+	public ?array $time;
 	/** @var (float|int)[] */
-	public array $temperature_2m;
+	public ?array $temperature_2m;
 	/** @var int[] */
     #[SerializedName('relative_humidity_2m')]
-	public array $relativeHumidity_2m;
+	public ?array $relativeHumidity_2m;
 	/** @var (float|int)[] */
     #[SerializedName('dew_point_2m')]
-	public array $dewPoint_2m;
+	public ?array $dewPoint_2m;
 	/** @var (float|int)[] */
     #[SerializedName('apparent_temperature')]
-	public array $apparentTemperature;
+	public ?array $apparentTemperature;
 	/** @var int[] */
     #[SerializedName('precipitation_probability')]
-	public array $precipitationProbability;
+	public ?array $precipitationProbability;
 	/** @var (float|int)[] */
-	public array $precipitation;
+	public ?array $precipitation;
 	/** @var (float|int)[] */
-	public array $rain;
+	public ?array $rain;
 	/** @var int[] */
-	public array $showers;
+	public ?array $showers;
 	/** @var int[] */
-	public array $snowfall;
+	public ?array $snowfall;
 	/** @var int[] */
     #[SerializedName('snow_depth')]
-	public array $snowDepth;
+	public ?array $snowDepth;
 
 	/**
 	 * @param string[] $time
@@ -47,17 +47,17 @@ class Hourly
 	 * @param int[] $snowDepth
 	 */
 	public function __construct(
-		array $time,
-		array $temperature_2m,
-		array $relativeHumidity_2m,
-		array $dewPoint_2m,
-		array $apparentTemperature,
-		array $precipitationProbability,
-		array $precipitation,
-		array $rain,
-		array $showers,
-		array $snowfall,
-		array $snowDepth
+		?array $time,
+		?array $temperature_2m,
+		?array $relativeHumidity_2m,
+		?array $dewPoint_2m,
+		?array $apparentTemperature,
+		?array $precipitationProbability,
+		?array $precipitation,
+		?array $rain,
+		?array $showers,
+		?array $snowfall,
+		?array $snowDepth
 	) {
 		$this->time = $time;
 		$this->temperature_2m = $temperature_2m;

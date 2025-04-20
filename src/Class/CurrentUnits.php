@@ -4,52 +4,52 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 
 class CurrentUnits
 {
-	public string $time;
-	public string $interval;
-	public string $temperature_2m;
+	public ?string $time;
+	public ?string $interval;
+	public ?string $temperature_2m;
     #[SerializedName('relative_humidity_2m')]
-	public string $relativeHumidity_2m;
+	public ?string $relativeHumidity_2m;
     #[SerializedName('apparent_temperature')]
-	public string $apparentTemperature;
+	public ?string $apparentTemperature;
     #[SerializedName('is_day')]
-	public string $isDay;
-	public string $precipitation;
-	public string $rain;
-	public string $showers;
-	public string $snowfall;
+	public ?string $isDay;
+	public ?string $precipitation;
+	public ?string $rain;
+	public ?string $showers;
+	public ?string $snowfall;
     #[SerializedName('weather_code')]
-	public string $weatherCode;
+	public ?string $weatherCode;
     #[SerializedName('cloud_cover')]
-	public string $cloudCover;
+	public ?string $cloudCover;
     #[SerializedName('pressure_msl')]
-	public string $pressureMsl;
+	public ?string $pressureMsl;
     #[SerializedName('surface_pressure')]
-	public string $surfacePressure;
+	public ?string $surfacePressure;
     #[SerializedName('wind_speed_10m')]
-	public string $windSpeed_10m;
+	public ?string $windSpeed_10m;
     #[SerializedName('wind_direction_10m')]
-	public string $windDirection_10m;
+	public ?string $windDirection_10m;
     #[SerializedName('wind_gusts_10m')]
-	public string $windGusts_10m;
+	public ?string $windGusts_10m;
 
 	public function __construct(
-		string $time,
-		string $interval,
-		string $temperature_2m,
-		string $relativeHumidity_2m,
-		string $apparentTemperature,
-		string $isDay,
-		string $precipitation,
-		string $rain,
-		string $showers,
-		string $snowfall,
-		string $weatherCode,
-		string $cloudCover,
-		string $pressureMsl,
-		string $surfacePressure,
-		string $windSpeed_10m,
-		string $windDirection_10m,
-		string $windGusts_10m
+		?string $time,
+		?string $interval,
+		?string $temperature_2m,
+		?string $relativeHumidity_2m,
+		?string $apparentTemperature,
+		?string $isDay,
+		?string $precipitation,
+		?string $rain,
+		?string $showers,
+		?string $snowfall,
+		?string $weatherCode,
+		?string $cloudCover,
+		?string $pressureMsl,
+		?string $surfacePressure,
+		?string $windSpeed_10m,
+		?string $windDirection_10m,
+		?string $windGusts_10m
 	) {
 		$this->time = $time;
 		$this->interval = $interval;

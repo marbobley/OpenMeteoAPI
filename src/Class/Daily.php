@@ -6,71 +6,71 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 class Daily
 {
 	/** @var string[] */
-	public array $time;
+	public ?array $time;
 	/** @var int[] */
     #[SerializedName('weather_code')]
-	public array $weatherCode;
+	public ?array $weatherCode;
 	/** @var float[] */
     #[SerializedName('temperature_2m_max')]
-	public array $temperature_2mMax;
+	public ?array $temperature_2mMax;
 	/** @var float[] */
     #[SerializedName('temperature_2m_min')]
-	public array $temperature_2mMin;
+	public ?array $temperature_2mMin;
 	/** @var int[] */
     #[SerializedName('apparent_temperature_max')]
-	public array $apparentTemperatureMax;
+	public ?array $apparentTemperatureMax;
 	/** @var float[] */
     #[SerializedName('apparent_temperature_min')]
-	public array $apparentTemperatureMin;
+	public ?array $apparentTemperatureMin;
 	/** @var string[] */
-	public array $sunrise;
+	public ?array $sunrise;
 	/** @var string[] */
-	public array $sunset;
+	public ?array $sunset;
 	/** @var float[] */
     #[SerializedName('daylight_duration')]
-	public array $daylightDuration;
+	public ?array $daylightDuration;
 	/** @var int[] */
     #[SerializedName('sunshine_duration')]
-	public array $sunshineDuration;
+	public ?array $sunshineDuration;
 	/** @var float[] */
     #[SerializedName('uv_index_max')]
-	public array $uvIndexMax;
+	public ?array $uvIndexMax;
 	/** @var float[] */
     #[SerializedName('uv_index_clear_sky_max')]
-	public array $uvIndexClearSkyMax;
+	public ?array $uvIndexClearSkyMax;
 	/** @var int[] */
     #[SerializedName('rain_sum')]
-	public array $rainSum;
+	public ?array $rainSum;
 	/** @var int[] */
     #[SerializedName('showers_sum')]
-	public array $showersSum;
+	public ?array $showersSum;
 	/** @var int[] */
     #[SerializedName('snowfall_sum')]
-	public array $snowfallSum;
+	public ?array $snowfallSum;
 	/** @var int[] */
     #[SerializedName('precipitation_sum')]
-	public array $precipitationSum;
+	public ?array $precipitationSum;
 	/** @var int[] */
     #[SerializedName('precipitation_hours')]
-	public array $precipitationHours;
+	public ?array $precipitationHours;
 	/** @var int[] */
     #[SerializedName('precipitation_probability_max')]
-	public array $precipitationProbabilityMax;
+	public ?array $precipitationProbabilityMax;
 	/** @var int[] */
     #[SerializedName('wind_speed_10m_max')]
-	public array $windSpeed_10mMax;
+	public ?array $windSpeed_10mMax;
 	/** @var float[] */
     #[SerializedName('wind_gusts_10m_max')]
-	public array $windGusts_10mMax;
+	public ?array $windGusts_10mMax;
 	/** @var int[] */
     #[SerializedName('wind_direction_10m_dominant')]
-	public array $windDirection_10mDominant;
+	public ?array $windDirection_10mDominant;
 	/** @var float[] */
     #[SerializedName('shortwave_radiation_sum')]
-	public array $shortwaveRadiationSum;
+	public ?array $shortwaveRadiationSum;
 	/** @var float[] */
     #[SerializedName('et0_fao_evapotranspiration')]
-	public array $et0FaoEvapotranspiration;
+	public ?array $et0FaoEvapotranspiration;
 
 	/**
 	 * @param string[] $time
@@ -98,29 +98,29 @@ class Daily
 	 * @param float[] $et0FaoEvapotranspiration
 	 */
 	public function __construct(
-		array $time,
-		array $weatherCode,
-		array $temperature_2mMax,
-		array $temperature_2mMin,
-		array $apparentTemperatureMax,
-		array $apparentTemperatureMin,
-		array $sunrise,
-		array $sunset,
-		array $daylightDuration,
-		array $sunshineDuration,
-		array $uvIndexMax,
-		array $uvIndexClearSkyMax,
-		array $rainSum,
-		array $showersSum,
-		array $snowfallSum,
-		array $precipitationSum,
-		array $precipitationHours,
-		array $precipitationProbabilityMax,
-		array $windSpeed_10mMax,
-		array $windGusts_10mMax,
-		array $windDirection_10mDominant,
-		array $shortwaveRadiationSum,
-		array $et0FaoEvapotranspiration
+		?array $time,
+		?array $weatherCode,
+		?array $temperature_2mMax,
+		?array $temperature_2mMin,
+		?array $apparentTemperatureMax,
+		?array $apparentTemperatureMin,
+		?array $sunrise,
+		?array $sunset,
+		?array $daylightDuration,
+		?array $sunshineDuration,
+		?array $uvIndexMax,
+		?array $uvIndexClearSkyMax,
+		?array $rainSum,
+		?array $showersSum,
+		?array $snowfallSum,
+		?array $precipitationSum,
+		?array $precipitationHours,
+		?array $precipitationProbabilityMax,
+		?array $windSpeed_10mMax,
+		?array $windGusts_10mMax,
+		?array $windDirection_10mDominant,
+		?array $shortwaveRadiationSum,
+		?array $et0FaoEvapotranspiration
 	) {
 		$this->time = $time;
 		$this->weatherCode = $weatherCode;
