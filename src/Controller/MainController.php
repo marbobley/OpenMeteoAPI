@@ -25,7 +25,7 @@ final class MainController extends AbstractController
         $latitude = $city_1->latitude;
         $longitude = $city_1->longitude;
 
-        $weather = $serviceOpenMeteo->GetMeteo($latitude,$longitude);
+        $weather = $serviceOpenMeteo->GetMeteoNow($latitude,$longitude);
         //$weather = $serviceOpenMeteo->getMeteoTest();
 
 
