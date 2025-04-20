@@ -8,9 +8,6 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class SerializerJsonService 
 {
-    private string $jsonPath ;
-    private Cities $cities;
-    
     public function __construct(
         private SerializerInterface $serializer , 
         private Filesystem $filesystem)
