@@ -12,6 +12,11 @@ class ServiceOpenMeteo{
         
     }
 
+    private function prepareURLTest() : string 
+    {
+        return 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth';
+    }
+
     private function prepareURL (float $latitude, float $longitude) : string
     {
         $query24h = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth&forecast_days=1';
@@ -20,16 +25,24 @@ class ServiceOpenMeteo{
         return sprintf($query,$latitude ,$longitude);
     }
 
+    public function getMeteoTest() : Weather
+    {
+        $client = HttpClient::create();
+        $response = $client->request(
+            'GET',
+            $this->prepareURLTest()            
+        );
+
+        return $this->serializer->deserialize($response->getContent(), Weather::class, 'json');
+    }
+
     public function GetMeteo(float $latitude, float $longitude) :  Weather
     {
-         $client = HttpClient::create();
+        $client = HttpClient::create();
         $response = $client->request(
             'GET',
             $this->prepareURL($latitude, $longitude)            
         );
-        
-        //$statusCode = $response->getStatusCode();
-        //$content = $response->toArray();
 
         return $this->serializer->deserialize($response->getContent(), Weather::class, 'json');
     }
