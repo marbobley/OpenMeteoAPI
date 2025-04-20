@@ -1,14 +1,24 @@
 <?php
 
+namespace App\Class;
+
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 class Weather
 {
+    #[SerializedName('latitude')]
 	public float $latitude;
+    #[SerializedName('longitude')]
 	public float $longitude;
+    #[SerializedName('generationtime_ms')]
 	public float $generationtimeMs;
+    #[SerializedName('utc_offset_seconds')]
 	public int $utcOffsetSeconds;
 	public string $timezone;
+    #[SerializedName('timezone_abbreviation')]
 	public string $timezoneAbbreviation;
-	public int $elevation;
+	public float $elevation;
+    #[SerializedName('hourly_units')]
 	public HourlyUnits $hourlyUnits;
 	public Hourly $hourly;
 
@@ -19,7 +29,7 @@ class Weather
 		int $utcOffsetSeconds,
 		string $timezone,
 		string $timezoneAbbreviation,
-		int $elevation,
+		float $elevation,
 		HourlyUnits $hourlyUnits,
 		Hourly $hourly
 	) {

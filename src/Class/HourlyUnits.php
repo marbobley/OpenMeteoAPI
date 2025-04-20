@@ -1,17 +1,25 @@
 <?php
+namespace App\Class;
+
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 class HourlyUnits
 {
 	public string $time;
 	public string $temperature_2m;
+    #[SerializedName('relative_humidity_2m')]
 	public string $relativeHumidity_2m;
+    #[SerializedName('dew_point_2m')]
 	public string $dewPoint_2m;
+    #[SerializedName('apparent_temperature')]
 	public string $apparentTemperature;
+    #[SerializedName('precipitation_probability')]
 	public string $precipitationProbability;
 	public string $precipitation;
 	public string $rain;
 	public string $showers;
 	public string $snowfall;
+    #[SerializedName('snow_depth')]
 	public string $snowDepth;
 
 	public function __construct(

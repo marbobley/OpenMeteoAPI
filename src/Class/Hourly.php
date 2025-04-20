@@ -1,4 +1,7 @@
 <?php
+namespace App\Class;
+
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 class Hourly
 {
@@ -7,12 +10,16 @@ class Hourly
 	/** @var (float|int)[] */
 	public array $temperature_2m;
 	/** @var int[] */
+    #[SerializedName('relative_humidity_2m')]
 	public array $relativeHumidity_2m;
 	/** @var (float|int)[] */
+    #[SerializedName('dew_point_2m')]
 	public array $dewPoint_2m;
 	/** @var (float|int)[] */
+    #[SerializedName('apparent_temperature')]
 	public array $apparentTemperature;
 	/** @var int[] */
+    #[SerializedName('precipitation_probability')]
 	public array $precipitationProbability;
 	/** @var (float|int)[] */
 	public array $precipitation;
@@ -23,6 +30,7 @@ class Hourly
 	/** @var int[] */
 	public array $snowfall;
 	/** @var int[] */
+    #[SerializedName('snow_depth')]
 	public array $snowDepth;
 
 	/**
