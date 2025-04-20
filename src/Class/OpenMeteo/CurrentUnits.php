@@ -1,5 +1,5 @@
 <?php
-namespace App\Class;
+namespace App\Class\OpenMeteo;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
 class CurrentUnits

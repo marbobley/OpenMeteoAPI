@@ -2,8 +2,7 @@
 
 namespace App\Service;
 
-use App\Class\Weather;
-use DateTimeImmutable;
+use App\Class\OpenMeteo\Weather;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\Serializer\SerializerInterface;
 
