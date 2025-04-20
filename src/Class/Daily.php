@@ -1,53 +1,75 @@
 <?php
 namespace App\Class;
 
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 class Daily
 {
 	/** @var string[] */
 	public array $time;
 	/** @var int[] */
+    #[SerializedName('weather_code')]
 	public array $weatherCode;
 	/** @var float[] */
+    #[SerializedName('temperature_2m_max')]
 	public array $temperature_2mMax;
 	/** @var float[] */
+    #[SerializedName('temperature_2m_min')]
 	public array $temperature_2mMin;
 	/** @var int[] */
+    #[SerializedName('apparent_temperature_max')]
 	public array $apparentTemperatureMax;
 	/** @var float[] */
+    #[SerializedName('apparent_temperature_min')]
 	public array $apparentTemperatureMin;
 	/** @var string[] */
 	public array $sunrise;
 	/** @var string[] */
 	public array $sunset;
 	/** @var float[] */
+    #[SerializedName('daylight_duration')]
 	public array $daylightDuration;
 	/** @var int[] */
+    #[SerializedName('sunshine_duration')]
 	public array $sunshineDuration;
 	/** @var float[] */
+    #[SerializedName('uv_index_max')]
 	public array $uvIndexMax;
 	/** @var float[] */
+    #[SerializedName('uv_index_clear_sky_max')]
 	public array $uvIndexClearSkyMax;
 	/** @var int[] */
+    #[SerializedName('rain_sum')]
 	public array $rainSum;
 	/** @var int[] */
+    #[SerializedName('showers_sum')]
 	public array $showersSum;
 	/** @var int[] */
+    #[SerializedName('snowfall_sum')]
 	public array $snowfallSum;
 	/** @var int[] */
+    #[SerializedName('precipitation_sum')]
 	public array $precipitationSum;
 	/** @var int[] */
+    #[SerializedName('precipitation_hours')]
 	public array $precipitationHours;
 	/** @var int[] */
+    #[SerializedName('precipitation_probability_max')]
 	public array $precipitationProbabilityMax;
 	/** @var int[] */
+    #[SerializedName('wind_speed_10m_max')]
 	public array $windSpeed_10mMax;
 	/** @var float[] */
+    #[SerializedName('wind_gusts_10m_max')]
 	public array $windGusts_10mMax;
 	/** @var int[] */
+    #[SerializedName('wind_direction_10m_dominant')]
 	public array $windDirection_10mDominant;
 	/** @var float[] */
+    #[SerializedName('shortwave_radiation_sum')]
 	public array $shortwaveRadiationSum;
 	/** @var float[] */
+    #[SerializedName('et0_fao_evapotranspiration')]
 	public array $et0FaoEvapotranspiration;
 
 	/**
