@@ -24,16 +24,16 @@ final class MainController extends AbstractController
         $weather = $serviceOpenMeteo->GetMeteoTest();
         $i = 0;
 
-        $message = '';
+        $message = [];
 
         foreach($weather->hourly->time as $currentTime)
         {
-            $message = sprintf('%s',$weather->hourly->time[$i])  ;
+            $message[] = $currentTime . ' : ' . $weather->hourly->temperature_2m[$i]  ;
             $i++;
         }
 
         //$blueService->SendMessage($message);
         
-        return $this->json($weather->hourly->time);
+        return $this->json($weather);
     }
 }
