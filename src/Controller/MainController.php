@@ -27,9 +27,17 @@ final class MainController extends AbstractController
 
         $weather = $serviceOpenMeteo->GetMeteoNow($latitude,$longitude);
         //$weather = $serviceOpenMeteo->getMeteoTest();
-
-
+        $message = sprintf('Ville de %s : Heure : %s Temperature %s %s Humidité %s %s', 
+        $city_1->label, 
+        $weather->current->time, 
+        $weather->current->temperature_2m , 
+        $weather->currentUnits->temperature_2m,
+        $weather->current->relativeHumidity_2m,
+        $weather->currentUnits->relativeHumidity_2m
+    );
+    
+        $blueService->SendMessage($message);    
         
-        return $this->json($weather);
+        return $this->json($message);
     }
 }
