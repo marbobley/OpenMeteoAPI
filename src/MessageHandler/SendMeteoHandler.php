@@ -44,7 +44,7 @@ final class SendMeteoHandler
         $weather->currentUnits->relativeHumidity_2m
     );
     
-        $this->blueService->SendMessage($message);    
+        $this->blueService->SendMessage2($message);    
 
     }
 }

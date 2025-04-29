@@ -12,7 +12,6 @@ class BlueService
     //cid : bafyreia5hne6evfsrzbmrqtuoplbwhvcbf2wfso2zz6y43hgg3qkm4bvym
     //$postService = new \potibm\Bluesky\BlueskyPostService($api);
     private ?BlueskyApi $api = null;
-    private ?BlueskyPostService $postService = null;
 
     public function __construct(private string $account, private string $password)
     {
@@ -20,46 +19,42 @@ class BlueService
         {
             $this->api = new BlueskyApi($this->account, $this->password);
         }
-        if($this->postService === null)
-        {
-        }
     }
     
     public function SendMessage(string $message): RecordResponse
     {           
         $post = Post::create($message);
-        return $this->api->createRecord($post);
+        return $this->api->createRecord($post);        
     }
 
-    public function AddMessage(string $uri , string $message)
+    private function ResetToken()
     {
-        $api = new BlueskyApi($this->account, $this->password);
-        $postService = new \potibm\Bluesky\BlueskyPostService($api);
-        $post = \potibm\Bluesky\Feed\Post::create('✨ example mentioning @atproto.com to share the URL 👨‍❤️‍👨 https://en.wikipedia.org/wiki/CBOR.');
-        $response = $api->createRecord($post);
-
-        $post = \potibm\Bluesky\Feed\Post::create('example of a reply');
-        $post = $postService->addReply(
-            $post, 
-            $response->getUri()->getUri()
-        );
-        /*
-        $post = Post::create($message);
-        $post = $this->postService->addReply(
-            $post, 
-            $uri
-        );*/
+        $this->api = new BlueskyApi($this->account, $this->password);
     }
+    
+    public function SendMessage2(string $message, int $retry = 0)
+    {           
+        if($retry > 5)
+        {
+            return;
+        }
 
-    public function QuoteMessage(string $uri , string $message)
-    {
         $post = Post::create($message);
-        $post = $this->postService->addQuote(
-            $post, 
-            $uri
-);
+        try {
+            return $this->api->createRecord($post);
+        } catch (\potibm\Bluesky\Exception\HttpRequestException $e) {
+            echo 'Error performing request on HTTP level: ' . $e->getMessage();
+        } catch (\potibm\Bluesky\Exception\AuthenticationErrorException $e) {
+            echo 'Unable to authorize: ' . $e->getMessage();
+        } catch (\potibm\Bluesky\Exception\HttpStatusCodeException $e) {
+            echo 'Unable to perform request on API level: ' . $e->getMessage();
+        } catch (\potibm\Bluesky\Exception\InvalidPayloadException $e) {
+            echo 'Received unserializable JSON payload: ' . $e->getMessage();
+        }
+        sleep(10);
+        $this->ResetToken();
+        $this->SendMessage($message, $retry++);
     }
-
 
 
 
